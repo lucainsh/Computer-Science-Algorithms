@@ -26,14 +26,10 @@ function mergesort($data) {
     // Only process if we're not down to one piece of data
     if(count($data)>1) {
         
-        /* Find out the middle of the current data set and split it there to obtain to halfs
-        $data_middle = round(count($data)/2, 0, PHP_ROUND_HALF_DOWN);
-        // and now for some recursive magic
-        $data_part1 = mergesort(array_slice($data, 0, $data_middle));
-        $data_part2 = mergesort(array_slice($data, $data_middle, count($data)));*/
         
         //split data into 2 pieces with array_chunk function
         $chunk = array_chunk($data, ceil(count($data)/2));
+        // and now for some recursive magic
         $data_part1 = mergesort($chunk[0]);
         $data_part2 = mergesort($chunk[1]);
 
